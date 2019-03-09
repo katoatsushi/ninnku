@@ -1,0 +1,27 @@
+<h1> クライアント一覧 </h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>客先名</th>
+            <th>客先住所</th>
+            <th>請求書送り先</th>
+            <th>客先電話番号</th>
+            <th>客先FAX</th>
+        </tr>
+    </thead>
+    <tbody>
+	<% @clients.each do |c| %>
+        <tr>
+            <th><%= c.client_name %></th>
+            <td><%= c.client_addr %></td>
+            <td><%= c.client_bill %></td>
+            <td><%= c.client_phone_number %></td>
+            <td><%= c.client_fax %></td>
+            <td><%= link_to '編集',edit_client_path(c.id),method: :get,class: 'btn btn-primary' %>
+           <%= link_to '削除',client_path(c.id),method: :delete ,class: 'btn btn-primary'%>
+           <%= link_to '詳細',client_path(c.id),method: :get,class: 'btn btn-primary' %></td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>

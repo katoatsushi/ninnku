@@ -1,0 +1,25 @@
+<%= form_for @client ,url: clients_path() do |f| %>
+
+<div>
+  <%= f.label :会社名 %>
+  <%= f.text_field :client_name %>
+</div>
+<div>
+  <%= f.label :住所 %>
+  <%= f.text_field :client_addr %>
+</div>
+<div>
+  <%= f.label :請求書送付先 %>
+  <%= f.text_field :client_bill %>
+</div>
+ <div>
+  <%= f.label :TEL %>
+  <%= f.text_field :client_phone_number %>
+</div>
+<div>
+  <%= f.label :FAX %>
+  <%= f.text_field :client_fax %>
+</div>
+
+  <%=f.submit '次へ', class: 'btn btn-primary'%>
+<% end %>

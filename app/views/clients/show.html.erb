@@ -1,0 +1,8 @@
+<%= @client.client_name %>
+<% @client.client_works.each do |cw| %>
+<div>
+	<%= cw.work_place %>
+	<%= cw.work_name %>
+	<%= cw.salary_per_man %>
+</div>
+<% end %>

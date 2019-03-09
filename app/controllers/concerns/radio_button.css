@@ -1,0 +1,48 @@
+.radio_button {
+    margin: 2em 0;
+    background: #dcefff;
+}
+.radio_button .box-title {
+    font-size: 2.5em;
+    background: #000080;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.box-top-title {
+    font-size: 2.5em;
+    background: #000080;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.radio_button .box-contents {
+    padding: 15px 20px;
+    margin: 0;
+}
+
+
+.box-select-mainpart {
+    font-size: 40px;
+    margin: 0px;
+    padding:0px;
+    text-align: center;
+
+    /*display:inline;*/
+}
+
+
+
+/*.collection_radio_button .box-select-mainpart {
+    font-size: 40px;
+    margin: 20px;
+    padding:20px;
+    text-align: center;
+
+    display:inline;
+}*/

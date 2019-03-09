@@ -1,0 +1,57 @@
+.radio_button {
+    margin: 2em 0;
+    background: #dcefff;
+}
+.radio_button .box-title {
+    font-size: 2.5em;
+    background: #000080;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.box-top-title {
+    font-size: 2.5em;
+    background: #000080;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.radio_button .box-contents {
+    padding: 15px 20px;
+    margin: 0;
+}
+
+
+.box-select-mainpart {
+    font-size: 40px;
+    margin: 0px;
+    padding:0px;
+    text-align: center;
+
+    /*display:inline;*/
+}
+
+span {
+    display: inline-block;
+}
+input[type=checkbox] {
+    width : 100px;
+    height: 100px;
+}
+
+input.geomsize {
+   width: 2em;
+   height: 2em;
+}
+input.geomsize2 {
+  transform: scale(2);
+  margin-left:10px;
+}
+span {
+    display: inline-block;
+}

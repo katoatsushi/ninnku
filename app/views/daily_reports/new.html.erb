@@ -1,0 +1,62 @@
+
+<%#= 今日の日付は Date.today.year.to_s  年  Date.today.month.to_s 月 Date.today.day.to_s 日です。 %>
+
+<h1>
+  今日は
+<%= Date.today.year.to_s %>
+年
+<%= Date.today.month.to_s %>
+月
+<%= Date.today.day.to_s %>
+日
+です
+</h1>
+
+<%= form_for @daily_report ,url: user_daily_reports_path(user_id: params[:user_id]) do |f| %>
+<div>
+	作業日
+     <%= raw sprintf(
+              f.date_select(
+                  :work_date,
+                  use_month_numbers: true,
+                  start_year:        Time.now.year,
+                  end_year:          (Time.now.year - 1),
+                  #default:           Date.new(1989, 1, 1),
+                  start_month: Time.now.year,
+                  end_month:  Time.now.month,
+                  defalut:           Time.now,
+                  date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+              '年 ', '月 ') + '日'
+   %>
+</div>
+<div>
+  開始時刻
+  <%= f.datetime_select :start_work_time, 
+    use_month_numbers: true,
+    defalut:   Time.now,
+    minute_step: 10,
+    discard_year: true
+  %>
+  〜
+終了時刻
+  <%= f.datetime_select :finish_work_time, 
+    use_month_numbers: true,
+    defalut:   Time.now,
+    minute_step: 10,
+    discard_year: true
+  %>
+</div>
+
+<div>
+  <% @arr.each do |arr| %>
+  <% cw = ClientWork.find(arr) %>
+  <%= f.radio_button :client_work_id, cw.id %>
+  <%= Client.find(cw.client_id).client_name %>
+  <%= f.label :client_work_id, cw.work_place, value: cw.id %>
+  <%= cw.work_name %>
+  <%end%>
+</div>
+
+
+  <%=f.submit '次へ', class: 'btn btn-primary'%>
+<% end %>

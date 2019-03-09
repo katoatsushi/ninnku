@@ -1,0 +1,16 @@
+<%= @user.name %>
+<%= @user.address %>
+<%= @user.phone_number %>
+<%= @user.landline_phone_number %>
+
+<% @user.daily_reports.each do |dr| %>
+<div>
+<%= dr.work_date %>
+<%= Client.find(dr.client_id).client_name %>
+<%= ClientWork.find(dr.client_work_id).work_place %>
+</div>
+<%end%>
+
+<%= link_to "PDFで表示",
+              user_path(@user, format: "pdf"),
+              :class => 'btn btn-primary' %>

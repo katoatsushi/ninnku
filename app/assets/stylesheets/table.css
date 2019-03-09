@@ -1,0 +1,22 @@
+table.client{
+  border-collapse:separate;
+  border-spacing: 5px;
+  width: 100%;
+}
+
+table.client th,table td{
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+table.client th{
+  background-color: #c79852;
+  color: white;
+  border:solid 1px #927141;
+}
+
+table.client td{
+  background-color: #e4d4bc;
+  border:solid 1px #af9d85;
+}

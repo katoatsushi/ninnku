@@ -1,0 +1,38 @@
+<%= form_for @user_work ,url: user_user_works_path(user_id: params[:user_id]) do |f| %>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>クライアント名</th>
+            <th>現場</th>
+        </tr>
+    </thead>
+    <tbody>
+     <% Client.all.each do |client|%>
+        <tr>
+           <th><%= client.client_name %></th>
+          <% client.client_works.each do |cw| %>
+               <td> <%= f.radio_button :client_work_id, cw.id %>
+            <%= f.label :client_work_id, cw.work_place, value: cw.id %>
+            <%= cw.work_name %>
+            </td>
+            <% end %>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+<div>
+  <%= f.label :基本給 %>
+  <%= f.text_field :work_salary %>
+</div>
+
+<div>
+  <%= f.label :時間外労働 %>
+  <%= f.text_field :work_overtime_salary %>
+</div>
+ 
+  <%=f.submit '次へ', class: 'btn btn-primary'%>
+<% end %>
+

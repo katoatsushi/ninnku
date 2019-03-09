@@ -1,0 +1,38 @@
+<h1>従業員一覧</h1>
+<h1><%= link_to 'クライアント一覧',  clients_path, method: :get ,class: 'btn btn-primary btn-lg'%></h1>
+<% if user_signed_in? && current_user.admin == true %>
+	<%= link_to 'クライアントを追加する', new_client_path,class: 'btn btn-primary' %>
+	<%= link_to '自社詳細へ' ,company_path(1), method: :get ,class: 'btn btn-primary'%>
+<% end %>
+
+
+<% if user_signed_in? %>
+ <%= link_to 'ログアウト', destroy_user_session_path(user_id: current_user.id), method: :delete,class: 'btn btn-primary' %>
+ <%else%>
+  <%= link_to 'ログイン', new_user_session_path ,class: 'btn btn-primary' %>
+<%end%>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>住所</th>
+            <th>電話番号</th>
+        </tr>
+    </thead>
+    <tbody>
+	<% @users.each do |user| %>
+        <tr>
+            <th><%= user.id%></th>
+            <td><%= user.name %></td>
+            <td><%= user.address  %></td>
+            <td><%= user.phone_number  %></td>
+            <td><%= link_to '人工を追加する', new_user_user_work_path(user.id),class: 'btn btn-primary' %>
+            <%= link_to '従業員詳細',  user_path(user.id),class: 'btn btn-primary' %>
+            <%= link_to '作業日報を追加', new_user_daily_report_path(user.id),class: 'btn btn-primary' %></td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>

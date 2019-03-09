@@ -1,0 +1,19 @@
+<h1><%= Client.find(params[:client_id]).client_name %>さんの現場追加</h1>
+<%= form_for @client_work ,url:  client_client_works_path(client_id: params[:client_id]) do |f| %>
+
+<div>
+  <%= f.label :現場名 %>
+  <%= f.text_field :work_place %>
+</div>
+<div>
+  <%= f.label :作業名 %>
+  <%= f.text_field :work_name %>
+</div>
+<div>
+  <%= f.label :基本給 %>
+  <%= f.text_field :salary_per_man %>
+</div>
+
+  <%=f.submit '次へ', class: 'btn btn-primary'%>
+<% end %>
+
